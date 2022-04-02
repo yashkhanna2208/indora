@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <header>
-          <Link href="/">indora</Link>
+          <Link to={"/"}>indora</Link>
         </header>
         <main>
           <Routes>
