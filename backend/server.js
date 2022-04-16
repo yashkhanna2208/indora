@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import ProductRouter from "./routes/productRoutes.js";
+import seedRouter from "./routes/seedRouter.js";
 
 dotenv.config();
 
@@ -15,9 +17,8 @@ mongoose
 
 const app = express();
 
-app.get("/api/products", (req, res) => {
-  res.send("products");
-});
+app.use("/api/products", ProductRouter);
+app.use("/api/seed", seedRouter);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
