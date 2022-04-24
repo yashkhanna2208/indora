@@ -1,15 +1,19 @@
-exports.register = (res, req, next) => {
+import User from "../models/user.js";
+
+const register = (req, res, next) => {
   res.send("Register");
 };
 
-exports.login = (res, req, next) => {
+const login = (req, res, next) => {
   res.send("Login");
 };
 
-exports.forgotpassword = (res, req, next) => {
+const forgotpassword = (req, res, next) => {
   res.send("Forgot Password Route");
 };
 
-exports.resetPassword = (res, req, next) => {
+const resetPassword = (req, res, next) => {
   res.send("Reset Password");
 };
+
+export { resetPassword, forgotpassword, login, register };
