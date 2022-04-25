@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
+import brypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: [true, "Please Provide Email"],
@@ -18,6 +23,16 @@ const userSchema = new mongoose.Schema({
     resetPasswordTokken: String,
     resetPasswordExpireDate: Date,
   },
+});
+
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+
+  const salt = await brypt.getSalt(10);
+  this.password = await brypt.hash(this.password, salt);
+  next();
 });
 
 const User = mongoose.model("User", userSchema);
