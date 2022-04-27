@@ -35,6 +35,10 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+userSchema.method.matchPassword = async function (password) {
+  return await brypt.compare(password, this.password);
+};
+
 const User = mongoose.model("User", userSchema);
 
 export default User;

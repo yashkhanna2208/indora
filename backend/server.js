@@ -18,6 +18,11 @@ app.use("/api/products", ProductRouter);
 app.use("/api/seed", seedRouter);
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log("server is running at " + port);
+});
+
+process.on("unhandledRejection", (err, promise) => {
+  console.log(`Logged Error : ${err}`);
+  server.close(() => process.exit(1));
 });
