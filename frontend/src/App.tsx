@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import { Link } from "react-router-dom";
 
-function App() {
+const App: React.FC<any> = () => {
   return (
     <BrowserRouter>
       <div className="App">
@@ -18,6 +18,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
