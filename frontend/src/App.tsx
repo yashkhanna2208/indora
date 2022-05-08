@@ -1,15 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
 import HomeScreen from "./screens/HomeScreen";
-import { Link } from "react-router-dom";
 
 const App: React.FC<any> = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <header>
-          <Link to={"/"}>indora</Link>
-        </header>
+        <Header />
         <main>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
