@@ -1,12 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header: React.FC<any> = () => {
-  return (
-    <header>
-      <Link to={"/"}>indora</Link>
-    </header>
-  );
+  const location = useLocation();
+
+  if (location.pathname.startsWith("/signIn")) {
+    return <></>;
+  } else {
+    return (
+      <header>
+        <Link to={"/"}>indora</Link>
+      </header>
+    );
+  }
 };
 
 export default Header;
