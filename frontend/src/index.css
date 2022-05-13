@@ -5,10 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to right, rgb(22, 21, 34), rgb(21, 19, 36));
 }
 
 header {
-  background-color: #404040;
+  background: linear-gradient(to right, rgb(22, 21, 34), rgb(21, 19, 36));
   padding: 1rem;
 }
 
